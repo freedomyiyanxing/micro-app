@@ -1,0 +1,27 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "description": "基座应用 vue3",
+  "main": "index.js",
+  "keywords": [],
+  "author": "freedom.yi",
+  "license": "ISC",
+  "scripts": {
+    "dev": "cross-env FILE_ENV=development webpack serve --config script/webpack-dev.js"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=8"
+  },
+  "dependencies": {
+    "pinia": "2.1.7",
+    "vue": "3.3.9",
+    "vue-router": "4.2.5",
+    "vxe-table": "4.5.13",
+    "xe-utils": "3.5.14",
+    "@arco-design/web-vue": "2.53.2"
+  },
+  "devDependencies": {
+    "vue-loader": "17.3.1"
+  }
+}
