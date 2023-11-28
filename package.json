@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:main": "cd ./packages/main && pnpm dev",
+    "dev:account": "cd ./packages/account && pnpm dev",
     "preinstall": "npx only-allow pnpm"
   },
   "keywords": [],
@@ -16,6 +17,9 @@
   "engines": {
     "node": ">=16",
     "pnpm": ">=8"
+  },
+  "dependencies": {
+    "axios": "0.21.4"
   },
   "devDependencies": {
     "cross-env": "7.0.3",

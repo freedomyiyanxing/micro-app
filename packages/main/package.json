@@ -19,7 +19,9 @@
     "vue-router": "4.2.5",
     "vxe-table": "4.5.13",
     "xe-utils": "3.5.14",
-    "@arco-design/web-vue": "2.53.2"
+    "@arco-design/web-vue": "2.53.2",
+    "wujie-vue3": "1.0.21",
+    "wujie": "1.0.21"
   },
   "devDependencies": {
     "vue-loader": "17.3.1"

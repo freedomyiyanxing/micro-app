@@ -6,10 +6,21 @@
 *
 -->
 <template>
-  <div>project</div>
+  <div>
+    <h2>Project</h2>
+    <WuJie
+        class="sub-app"
+        url="//localhost:8002/"
+        width="100%"
+        height="100%"
+        name="vue3"
+    />
+  </div>
 </template>
 
 <script setup>
+import WuJie from "@/components/wu-jie";
+
 defineOptions({
   name: '/project'
 })
