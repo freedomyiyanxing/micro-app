@@ -1,46 +1,59 @@
 const path = require('node:path');
-const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { shtEnv } = require('./utils');
-const pkg = require('../package.json');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackBar = require('webpackbar');
+const pkg = require('./package.json');
+const { shtEnv } = require('../../script/utils');
 
-const plugins = [];
-
-if (process.env.SHT_APP_TYPE !== 'development') {
-  plugins.push(
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:16].css',
-      chunkFilename: 'css/[name].[contenthash:16].css',
-      ignoreOrder: true,
-    })
-  )
-}
 
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, '../src/main.js'),
-  },
-  cache: {
-    type: 'filesystem',
-    buildDependencies: {
-      // 更改配置文件时，重新缓存
-      config: [__filename],
+  mode: 'development',
+  stats: 'minimal',
+  devServer: {
+    // hot: true,
+    port: process.env.PORT || 6002,
+    historyApiFallback: true,
+    // https://www.webpackjs.com/configuration/dev-server/#devserversetupexitsignals
+    setupExitSignals: true,
+    client: {
+      overlay: false,
     },
-    cacheDirectory: path.resolve(__dirname, '../node_modules/.cac/webpack'),
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Methods": "*",
+    },
+    proxy: {
+      '/api': {
+        target: process.env.URL_API,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/',
+        },
+      },
+    },
+  },
+  entry: {
+    main: path.resolve(__dirname, './src/main.js'),
   },
   target: ["web", "es2020"],
   output: {
+    filename: 'js/[name].[fullhash].js',
+    chunkFilename: 'js/[name].[fullhash].js',
     pathinfo: false,
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, './dist'),
     publicPath: process.env.PUBLIC_PATH,
     //process.env.SHT_APP_TYPE === 'production' ? `https://oksht-mall.oss-cn-shenzhen.aliyuncs.com/cdn/${pkg.name}/` : '/',
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '../src'),
+      '@': path.resolve(__dirname, './src'),
     },
+    //   '@main': path.resolve(__dirname, '../packages/main/src'),
+    //   '@account': path.resolve(__dirname, '../packages/account/src'),
+    // },
     extensions: [
       '.js',
       '.vue',
@@ -50,7 +63,7 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        include: path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, './src'),
         use: [
           {
             loader: 'vue-loader',
@@ -63,8 +76,13 @@ module.exports = {
         ]
       },
       {
+        test: /\.js$/,
+        include: path.resolve(__dirname, './src'),
+        use: ['babel-loader']
+      },
+      {
         test: /\.scss$/,
-        include: path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, './src'),
         use: [
           process.env.SHT_APP_TYPE === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
@@ -81,21 +99,24 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, '../src'),
+        include: path.resolve(__dirname, './src'),
         use: [
-          process.env.SHT_APP_TYPE === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader',
         ]
       },
     ],
   },
   plugins: [
-    ...plugins,
+    new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       'process.env': shtEnv,
-      __VUE_OPTIONS_API__: false,
+      __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false,
+    }),
+    new WebpackBar({
+      name: pkg.name,
     }),
     new HtmlWebpackPlugin(
       {
@@ -107,8 +128,8 @@ module.exports = {
           collapseBooleanAttributes: true,
           removeScriptTypeAttributes: true
         },
-        template: path.resolve(__dirname, '../public/index.html'),
+        template: path.resolve(__dirname, './public/index.html'),
       }
     ),
-  ],
+  ]
 }

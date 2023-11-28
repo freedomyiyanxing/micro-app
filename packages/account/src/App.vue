@@ -6,14 +6,34 @@
 *
 -->
 <template>
- <div>
-   <h1>Account 应用</h1>
- </div>
+  <div>
+    <h1>Account 应用</h1>
+    <p>{{ count }}</p>
+    <button @click="handlerClick">按钮</button>
+
+
+    <router-link to="/dict">Go to Dict</router-link>
+    <router-link to="/role">Go to Role</router-link>
+
+    <hr />
+
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+      count: 0,
+    }
+  },
+  methods: {
+    handlerClick() {
+      this.count += 1;
+    }
+  }
 };
 </script>
 

@@ -108,6 +108,9 @@ importers:
       vue:
         specifier: 2.6.14
         version: 2.6.14
+      vue-router:
+        specifier: 3.5.1
+        version: 3.5.1(vue@2.6.14)
     devDependencies:
       vue-loader:
         specifier: 15.10.1
@@ -136,9 +139,6 @@ importers:
       wujie:
         specifier: 1.0.21
         version: 1.0.21
-      wujie-vue3:
-        specifier: 1.0.21
-        version: 1.0.21(vue@3.3.9)
       xe-utils:
         specifier: 3.5.14
         version: 3.5.14
@@ -6554,6 +6554,14 @@ packages:
       webpack: 5.89.0(webpack-cli@5.1.4)
     dev: true
 
+  /vue-router@3.5.1(vue@2.6.14):
+    resolution: {integrity: sha512-RRQNLT8Mzr8z7eL4p7BtKvRaTSGdCbTy2+Mm5HTJvLGYSSeG9gDzNasJPP/yOYKLy+/cLG/ftrqq5fvkFwBJEw==}
+    peerDependencies:
+      vue: ^2
+    dependencies:
+      vue: 2.6.14
+    dev: false
+
   /vue-router@4.2.5(vue@3.3.9):
     resolution: {integrity: sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==}
     peerDependencies:
@@ -6899,15 +6907,6 @@ packages:
       utf-8-validate:
         optional: true
     dev: true
-
-  /wujie-vue3@1.0.21(vue@3.3.9):
-    resolution: {integrity: sha512-KFVmS5D0YqYOrF+lMxD9srxMfO8sVTo4DsrKfkWHOZ0ZcgUz9RKRiYgEbENuYLATUj56U4Tf7dgVeqCJBKKdlA==}
-    peerDependencies:
-      vue: ^3.0.0
-    dependencies:
-      vue: 3.3.9
-      wujie: 1.0.21
-    dev: false
 
   /wujie@1.0.21:
     resolution: {integrity: sha512-MTTFsjIT2dI/WLNczyUB50oLrWNuaPiWJiqC/xhMq67Ff2smcBtiBW3pKqzJxrHbefa1C8YsP3wtqar/+YckzQ==}

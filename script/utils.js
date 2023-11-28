@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-require('./sht-env');
+require('./env');
 const UNIT = 1024;
 
 function generateCacheGroups(fileName) {

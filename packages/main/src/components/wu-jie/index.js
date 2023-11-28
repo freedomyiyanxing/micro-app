@@ -8,7 +8,7 @@
 import { h, defineComponent } from "vue";
 import { bus, preloadApp, startApp as rawStartApp, destroyApp, setupApp } from "wujie";
 
-const wujieVueOptions = {
+const WuJieVueOptions = {
   name: "WuJie",
   props: {
     width: { type: String, default: "" },
@@ -40,11 +40,7 @@ const wujieVueOptions = {
       startAppQueue: Promise.resolve(),
     };
   },
-  created() {
-    console.log('112233--- created')
-  },
   mounted() {
-    console.log('mounted')
     bus.$onAll(this.handleEmit);
     this.execStartApp();
     this.$watch(
@@ -98,8 +94,6 @@ const wujieVueOptions = {
     },
   },
   render() {
-    console.log(this);
-    console.log('====111');
     return h("div", {
       style: {
         width: this.width,
@@ -110,14 +104,14 @@ const wujieVueOptions = {
   },
 };
 
-const WuJieVue = defineComponent(wujieVueOptions);
+const WuJie = defineComponent(WuJieVueOptions);
 
-WuJieVue.setupApp = setupApp;
-WuJieVue.preloadApp = preloadApp;
-WuJieVue.bus = bus;
-WuJieVue.destroyApp = destroyApp;
-WuJieVue.install = function (app) {
-  app.component("WuJie", WuJieVue);
+WuJie.setupApp = setupApp;
+WuJie.preloadApp = preloadApp;
+WuJie.bus = bus;
+WuJie.destroyApp = destroyApp;
+WuJie.install = function (app) {
+  app.component("WuJie", WuJie);
 };
 
-export default WuJieVue;
+export default WuJie;

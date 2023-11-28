@@ -21,13 +21,16 @@ if (process.env.SHT_APP_TYPE !== 'development') {
 
 module.exports = {
   // ...optimization(),
-  cache: {
-    type: 'filesystem',
-    buildDependencies: {
-      // 更改配置文件时，重新缓存
-      config: [__filename],
-    },
-    cacheDirectory: path.resolve(__dirname, '../node_modules/.cac/webpack'),
+  // cache: {
+  //   type: 'filesystem',
+  //   buildDependencies: {
+  //     // 更改配置文件时，重新缓存
+  //     config: [__filename],
+  //   },
+  //   cacheDirectory: path.resolve(__dirname, '../node_modules/.cac/webpack'),
+  // },
+  entry: {
+    main: path.resolve(__dirname, '../src/main.js'),
   },
   target: ["web", "es2020"],
   output: {
@@ -38,7 +41,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '../src'),
+      '@main': path.resolve(__dirname, '../packages/main/src'),
+      '@account': path.resolve(__dirname, '../packages/account/src'),
     },
     extensions: [
       '.js',
@@ -62,12 +66,6 @@ module.exports = {
               compilerOptions: {
                 whitespace: 'condense'
               },
-            }
-          },
-          {
-            loader: 'sht-vue-components-name',
-            options: {
-              separator: pkg.name,
             }
           },
         ]
@@ -94,20 +92,24 @@ module.exports = {
           }
         ]
       },
-      // {
-      //   test: /\.css$/,
-      //   include: path.resolve(__dirname, '../src'),
-      //   use: [
-      //     process.env.SHT_APP_TYPE === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
-      //     'css-loader',
-      //   ]
-      // },
+      {
+        test: /\.css$/,
+        include: path.resolve(__dirname, '../src'),
+        use: [
+          process.env.SHT_APP_TYPE === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+        ]
+      },
     ],
   },
   plugins: [
     ...plugins,
     new VueLoaderPlugin(),
-    new webpack.DefinePlugin({ 'process.env': shtEnv }),
+    new webpack.DefinePlugin({
+      'process.env': shtEnv,
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false,
+    }),
     new WebpackBar({
       name: pkg.name,
     }),

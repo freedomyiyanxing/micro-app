@@ -5,13 +5,13 @@
  * @project vue-project
  *
  * */
-import * as VueRouter from 'vue-router';
-import HomeIndex from '@/views/home/index';
-import HomeList from '@/views/home/list';
-import AccountIndex from '@/views/account/index';
-import AccountSetting from '@/views/account/setting';
-import Test from '@/views/account/test';
-import Project from '@/views/project';
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeIndex from '../views/home';
+import HomeList from '../views/home/list';
+import AccountIndex from '../views/account/index';
+import AccountSetting from '../views/account/setting';
+import Test from '../views/account/test';
+import Project from '../views/project';
 
 export const routers = [
   {
@@ -73,10 +73,10 @@ export const routers = [
   },
 ]
 
-const index = VueRouter.createRouter({
+const index = createRouter({
   strict: true,
-  history: VueRouter.createWebHistory(),
-  routes: routers
+  routes: routers,
+  history: createWebHistory()
 });
 
 // index.addRoute

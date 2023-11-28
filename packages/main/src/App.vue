@@ -6,7 +6,6 @@
     <a-layout>
       <a-layout-header>
         <Header />
-        {{ tagStore.keepAliveList }}
       </a-layout-header>
       <a-layout-content>
         <router-view #default="{ Component, route }">
@@ -20,9 +19,9 @@
 </template>
 
 <script setup>
-import Sidebar from '@/layout/sidebar';
-import Header from '@/layout/header';
-import { useTagsStore } from '@/store/modules/tag';
+import Sidebar from './layout/sidebar';
+import Header from './layout/header';
+import { useTagsStore } from './store/modules/tag';
 
 const tagStore = useTagsStore();
 </script>

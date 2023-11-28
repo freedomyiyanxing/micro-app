@@ -15,16 +15,19 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { useTagsStore } from '@/store/modules/tag';
 
 const router = useRouter();
+const route = useRoute();
 
 const tagStore = useTagsStore();
 
 function handleOpen(item) {
-  router.push(item.name);
-  tagStore.addTag(item)
+  if (item.name !== route.name) {
+    router.push(item.name);
+    tagStore.addTag(item)
+  }
 }
 
 function handleClose(item) {

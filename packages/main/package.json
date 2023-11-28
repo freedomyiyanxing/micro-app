@@ -7,7 +7,7 @@
   "author": "freedom.yi",
   "license": "ISC",
   "scripts": {
-    "dev": "cross-env FILE_ENV=development webpack serve --config script/webpack-dev.js"
+    "dev": "cross-env FILE_ENV=development webpack serve --config webpack-config.js"
   },
   "engines": {
     "node": ">=16",
@@ -20,7 +20,6 @@
     "vxe-table": "4.5.13",
     "xe-utils": "3.5.14",
     "@arco-design/web-vue": "2.53.2",
-    "wujie-vue3": "1.0.21",
     "wujie": "1.0.21"
   },
   "devDependencies": {

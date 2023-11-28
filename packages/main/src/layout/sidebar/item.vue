@@ -28,9 +28,10 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useTagsStore } from '@/store/modules/tag';
 
+const route = useRoute();
 const router = useRouter();
 const tagStore = useTagsStore();
 
@@ -46,8 +47,10 @@ defineProps({
 })
 
 function handleOpen(item) {
-  router.push(item.name);
-  tagStore.addTag(item)
+  if (item.name !== route.name) {
+    router.push(item.name);
+    tagStore.addTag(item)
+  }
 }
 
 </script>

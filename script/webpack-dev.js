@@ -1,9 +1,7 @@
 const webpack = require('webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const { merge } = require('webpack-merge');
-const baseConfig = require('./webpack-base');
 
-module.exports = merge(baseConfig, {
+module.exports = {
   mode: 'development',
   output: {
     filename: 'js/[name].[fullhash].js',
@@ -18,7 +16,7 @@ module.exports = merge(baseConfig, {
   ],
   devServer: {
     // hot: true,
-    port: process.env.PORT || 8888,
+    port: process.env.PORT,
     historyApiFallback: true,
     // https://www.webpackjs.com/configuration/dev-server/#devserversetupexitsignals
     setupExitSignals: true,
@@ -35,4 +33,5 @@ module.exports = merge(baseConfig, {
       },
     },
   },
-});
+};
+

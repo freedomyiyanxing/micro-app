@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env FILE_ENV=development webpack serve --config script/webpack-dev.js"
+    "dev": "cross-env FILE_ENV=development webpack serve --config webpack-config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue": "2.6.14"
+    "vue": "2.6.14",
+    "vue-router": "3.5.1"
   },
   "devDependencies": {
     "vue-loader": "15.10.1",
