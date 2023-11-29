@@ -1,0 +1,46 @@
+// 新增订单 info-form
+@use "sass:math";
+@import 'var';
+@import 'mixin';
+
+.sht-info-form {
+  display: flex;
+  flex-wrap: wrap;
+
+  > div {
+    flex: 0 0 20%;
+  }
+}
+
+.sht-form-goods-input {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+
+  > span {
+    flex: 0 0 54px;
+    font-size: $--font-size-extra-small;
+  }
+}
+
+@for $i from 0 through 5 {
+  .sht-info-form-#{$i} {
+    display: flex;
+    flex-wrap: wrap;
+
+    > div {
+      flex: 0 0  math.div(100, $i) * 1%
+    }
+  }
+}
+
+@for $i from 0 through 5 {
+  .sht-info-form-#{$i} {
+    display: flex;
+    flex-wrap: wrap;
+
+    > div {
+      flex: 0 0 math.div(100, $i) * 1%
+    }
+  }
+}

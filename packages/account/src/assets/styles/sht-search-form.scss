@@ -1,0 +1,57 @@
+/***
+* Copyright (c) 2023 湖南数字侠软件有限公司
+* @author freedom.yi
+* @date 2023/7/5
+* @project vxe-test
+*
+**/
+
+@import "var";
+
+.sht-search-form {
+  margin-right: -6px;
+}
+
+.sht-form--wrapper {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  .sht-form--item {
+    margin: 0 6px 6px 0;
+
+    > .el-input,
+    > .el-select {
+      width: 200px
+    }
+
+    > .el-date-editor {
+      width: 240px;
+    }
+  }
+  .sht-form-dropdown-btn{
+    margin-left: 10px;
+  }
+
+  .sht-form--item-btn {
+    width: auto;
+    display: flex;
+  }
+
+  .sht-dropdown-item {
+    display: flex;
+  }
+
+  .sht-dropdown-item-btn {
+    padding: 0 16px;
+  }
+
+}
+
+.el-button.sht-form-dropdown-btn {
+  padding: 2px;
+  border: none;
+  font-size: 20px;
+  width: 28px;
+  height: 28px;
+}

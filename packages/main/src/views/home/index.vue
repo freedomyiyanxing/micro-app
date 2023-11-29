@@ -16,13 +16,8 @@
       <span style="margin-right: 40px">{{idx + 1}}</span>
       <span>{{item.name}}</span>
       <span>{{item.salesOrderSn}}</span>
-      <span>{{item.customerName}}</span>
       <span>{{item.tenant}}</span>
       <span>{{item.createUserName}}</span>
-      <span>{{item.approveDate}}</span>
-      <span>{{item.orderCanal}}</span>
-      <span>{{item.updateTime}}</span>
-      <span>{{item.enterpriseSn}}</span>
     </div>
   </div>
 </template>

@@ -3,7 +3,7 @@ const cdn = {
     'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/nprogress/0.2.0/nprogress.css',
     'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/vxe-table/3.3.15/style.css',
     'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/vxe-table-plugin-element/1.11.2/style.min.css',
-    'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/element-ui/0.0.18/index.min.css',
+    // 'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/element-ui/0.0.18/index.min.css',
   ],
   js: [
     process.env.SHT_APP_TYPE === 'production'
@@ -20,7 +20,7 @@ const cdn = {
       'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/vxe-table/3.3.15/index.umd.min.js',
       'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/vxe-table-plugin-element/1.11.2/index.umd.min.js',
       'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/nprogress/0.2.0/nprogress.js',
-      'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/element-ui/0.0.18/index.min.js',
+      // 'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/element-ui/0.0.18/index.min.js',
       'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/hotkeys-js/3.8.7/hotkeys.min.js',
       'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/dayjs/1.10.5/dayjs.min.js',
       'https://bomman-web-cdn.oss-cn-shenzhen.aliyuncs.com/js/vue-clipboard2/0.3.3/vue-clipboard.min.js',
@@ -43,7 +43,7 @@ const externals = [
     echarts: 'echarts',
     'hotkeys-js': 'hotkeys',
     'nprogress': 'NProgress',
-    'element-ui': 'ELEMENT',
+    // 'element-ui': 'ELEMENT',
     '@better-scroll/core': 'BScroll',
     '@better-scroll/mouse-wheel': 'MouseWheel',
     'xe-utils': 'XEUtils',

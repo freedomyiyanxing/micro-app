@@ -1,0 +1,71 @@
+@import "var";
+@import 'vxe-table-var';
+
+.sht-setting-dialog-wrapper {
+  text-align: center;
+  position: relative;
+  font-size: $--font-size-large;
+  line-height: 1;
+  color: $--color-text-primary;
+
+  .sht-setting-prompt {
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: $--color-warning;
+    margin-left: 10px;
+  }
+}
+
+.sht-setting-wrapper {
+  margin-bottom: 20px;
+
+  .sht-setting-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .sht-setting-title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1;
+
+    > b {
+      margin-left: 10px;
+      font-size: 12px;
+      font-weight: normal;
+      color: $--color-warning;
+    }
+  }
+
+  .sht-setting-option {
+    flex: 0 0 150px;
+    margin-right: 15px;
+    min-width: 0;
+    margin-bottom: 10px;
+
+    &.is--disable .el-checkbox {
+      filter: grayscale(80%);
+      opacity: 0.75;
+    }
+  }
+
+  .el-checkbox {
+    display: flex;
+    align-items: center;
+    height: 24px;
+  }
+
+  .el-checkbox__label {
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .el-checkbox__input {
+    height: 16px;
+    line-height: 20px;
+  }
+}

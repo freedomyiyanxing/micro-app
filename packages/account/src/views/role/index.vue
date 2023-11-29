@@ -9,7 +9,7 @@
   <div>
     <h1>Role</h1>
     <p>{{count}}</p>
-    <button @click="handleClick">加 2</button>
+    <button @click="handleClick">加 3</button>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     handleClick() {
-      this.count += 2;
+      this.count += 3;
     }
   }
 };

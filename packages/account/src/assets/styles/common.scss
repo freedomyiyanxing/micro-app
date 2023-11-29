@@ -1,0 +1,34 @@
+@import 'var';
+
+@import 'vxe-table-var';
+
+// 全家基本样式
+@import 'reset';
+
+@import "icon";
+
+// 布局
+@import 'layout';
+
+// 侧面导航栏
+@import './sidebar';
+
+// 头部
+@import './header';
+
+// 动画
+@import './animate/vue-transition';
+
+// 全局统一样式
+@import './normalize';
+
+@import "./login";
+//
+//// 首页样式
+//@import './home';
+//
+//// 消息通知
+//@import './message';
+
+@import "./sht-search-form";
+@import "sht-setting";

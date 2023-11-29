@@ -11,24 +11,36 @@ const { shtEnv } = require('../../script/utils');
 module.exports = {
   mode: 'development',
   stats: 'minimal',
+  cache: {
+    type: 'filesystem',
+    buildDependencies: {
+      // 更改配置文件时，重新缓存
+      config: [__filename],
+    },
+    cacheDirectory: path.resolve(__dirname, './node_modules/.cac/webpack'),
+  },
   devServer: {
     // hot: true,
-    port: process.env.PORT || 6001,
+    port: 6001,
     historyApiFallback: true,
     // https://www.webpackjs.com/configuration/dev-server/#devserversetupexitsignals
     setupExitSignals: true,
     client: {
       overlay: false,
     },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Methods": "*",
+    },
     proxy: {
       '/api': {
         target: process.env.URL_API,
-        changeOrigin: true,
         pathRewrite: {
           '^/api': '/',
         },
       },
-    },
+    }
   },
   entry: {
     main: path.resolve(__dirname, './src/main.js'),

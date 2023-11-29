@@ -8,9 +8,10 @@
 <template>
   <div>
     <h1>Account 应用</h1>
-    <p>{{ count }}</p>
+    <span>{{ count }}</span>
     <button @click="handlerClick">按钮</button>
 
+    <hr />
 
     <router-link to="/dict">Go to Dict</router-link>
     <router-link to="/role">Go to Role</router-link>

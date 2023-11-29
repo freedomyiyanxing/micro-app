@@ -10,8 +10,14 @@
 <head>
   <meta charset="UTF-8">
   <title>account 应用</title>
+  <% for(var css of htmlWebpackPlugin.options.cdn.css) { %>
+  <link rel="stylesheet" href="<%=css%>" as="style">
+  <% } %>
 </head>
 <body>
 <div id="app"></div>
+<% for(var js of htmlWebpackPlugin.options.cdn.js) { %>
+<script src="<%=js%>"></script>
+<% } %>
 </body>
 </html>

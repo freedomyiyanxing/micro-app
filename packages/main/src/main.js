@@ -8,6 +8,8 @@ import WuJie from './components/wu-jie';
 import '@/assets/styles/reset.css'
 import '@/assets/styles/arco.min.css';
 import '@/assets/vxe-table/vxe-table.min.css';
+import '@/assets/element-ui/select.css';
+import '@/assets/element-ui/select-dropdown.css';
 import App from './App';
 //
 // const { setupApp } = WuJie;
